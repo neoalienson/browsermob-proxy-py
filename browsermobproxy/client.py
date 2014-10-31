@@ -120,7 +120,7 @@ class Client(object):
                          payload)
         return r.status_code
 
-    def blacklist(self, regexp, status_code, method):
+    def blacklist(self, regexp, status_code, method = ''):
         """
         Sets a list of URL patterns to blacklist
 
