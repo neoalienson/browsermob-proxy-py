@@ -120,7 +120,7 @@ class Client(object):
                          payload)
         return r.status_code
 
-    def blacklist(self, regexp, status_code):
+    def blacklist(self, regexp, status_code, method):
         """
         Sets a list of URL patterns to blacklist
 
@@ -128,10 +128,11 @@ class Client(object):
         :param regex: a comma separated list of regular expressions
         :param status_code: the HTTP status code to return for URLs that do not \
                        match the blacklist
+        :param method: HTTP method to black list in regular expresion
 
         """
         r = requests.put('%s/proxy/%s/blacklist' % (self.host, self.port),
-                         {'regex': regexp, 'status': status_code})
+                         {'regex': regexp, 'status': status_code, 'method': method})
         return r.status_code
 
     def whitelist(self, regexp, status_code):
